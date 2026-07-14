@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#8FA58B',
+                        'sage-light': '#A8BFA4',
+                        'sage-dark': '#7A9076',
+                        cream: '#F8F6F1',
+                        'cream-dark': '#EDE9E1',
+                        taupe: '#D9D2C6',
+                        'taupe-dark': '#C4BAA9',
+                        forest: '#5C735F',
+                        'forest-dark': '#4A5C4D',
+                        'forest-light': '#6E8872',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant', 'Georgia', 'serif'],
+                        sans: ['Karla', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { display: none; }
+        html { scroll-behavior: smooth; }
+
+        .glassmorphism {
+            background: rgba(248, 246, 241, 0.90);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .polaroid-card {
+            box-shadow: 0 4px 28px 0 rgba(92, 115, 95, 0.10), 0 1.5px 6px 0 rgba(217,210,198,0.18);
+        }
+        .testimonial-shadow {
+            box-shadow: 0 8px 32px 0 rgba(217, 210, 198, 0.55);
+        }
+        .card-hover {
+            transition: transform 0.28s cubic-bezier(.22,.68,0,1.2), box-shadow 0.28s;
+        }
+        .card-hover:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 56px 0 rgba(92,115,95,0.15);
+        }
+        .btn-sage {
+            background: #8FA58B;
+            color: #fff;
+            transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
+        }
+        .btn-sage:hover {
+            background: #7A9076;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px 0 rgba(92,115,95,0.25);
+        }
+        .btn-outline-taupe {
+            border: 2px solid #D9D2C6;
+            color: #5C735F;
+            background: transparent;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .btn-outline-taupe:hover {
+            background: #D9D2C6;
+            border-color: #C4BAA9;
+            color: #4A5C4D;
+        }
+        .nav-link {
+            color: #5C735F;
+            font-family: 'Karla', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            position: relative;
+            padding-bottom: 2px;
+            transition: color 0.2s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1.5px;
+            background: #8FA58B;
+            transform: scaleX(0);
+            transition: transform 0.22s;
+        }
+        .nav-link:hover::after { transform: scaleX(1); }
+        .nav-link:hover { color: #4A5C4D; }
+
+        .step-connector {
+            flex: 1;
+            height: 3px;
+            border-radius: 99px;
+            background: linear-gradient(90deg, #8FA58B 0%, #5C735F 100%);
+            margin-top: 32px;
+        }
+        .service-img-overlay {
+            background: linear-gradient(180deg, transparent 55%, rgba(92,115,95,0.55) 100%);
+        }
+        .cta-overlay {
+            background: linear-gradient(135deg, rgba(92,115,95,0.88) 0%, rgba(74,92,77,0.92) 100%);
+        }
+        .credential-pill {
+            border: 1.5px solid rgba(143,165,139,0.35);
+            background: rgba(248,246,241,0.85);
+        }
+        .resource-tag {
+            background: rgba(143,165,139,0.15);
+            color: #5C735F;
+        }
+        .about-portrait-shadow {
+            box-shadow: 0 16px 64px 0 rgba(92,115,95,0.18), 0 4px 16px 0 rgba(217,210,198,0.3);
+        }
+    </style>
+</head>
+<body class="bg-cream font-sans overflow-x-hidden">
+
+<!-- ==================== HEADER ==================== -->
+<header id="header" class="fixed top-0 left-0 right-0 z-50 glassmorphism border-b border-taupe/40 h-[70px]">
+    <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between gap-4">
+
+        <!-- Left Nav -->
+        <nav class="hidden lg:flex items-center gap-7">
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#process" class="nav-link">Process</a>
+        </nav>
+
+        <!-- Center Logo -->
+        <div class="flex items-center gap-2.5 mx-auto lg:mx-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+            <div class="w-9 h-9 bg-forest rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-leaf text-cream text-sm"></i>
+            </div>
+            <span class="font-serif text-forest text-xl lg:text-2xl tracking-wide font-medium whitespace-nowrap">Vera Wellness</span>
+        </div>
+
+        <!-- Right Nav -->
+        <div class="hidden lg:flex items-center gap-7">
+            <a href="#resources" class="nav-link">Resources</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <button class="btn-sage px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide flex items-center gap-2 ml-2">
+                <i class="fa-solid fa-calendar-check text-xs"></i>
+                Book Discovery Call
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <button class="lg:hidden text-forest text-xl ml-auto" id="mobile-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-cream border-t border-taupe/40 px-6 py-5 space-y-4">
+        <a href="#services" class="block nav-link py-1.5">Services</a>
+        <a href="#about" class="block nav-link py-1.5">About</a>
+        <a href="#process" class="block nav-link py-1.5">Process</a>
+        <a href="#resources" class="block nav-link py-1.5">Resources</a>
+        <a href="#contact" class="block nav-link py-1.5">Contact</a>
+        <button class="btn-sage w-full py-3 rounded-full text-sm font-semibold tracking-wide flex items-center justify-center gap-2 mt-2">
+            <i class="fa-solid fa-calendar-check text-xs"></i>
+            Book Discovery Call
+        </button>
+    </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<section id="hero" class="w-full relative pt-[70px]">
+    <div class="relative w-full h-[760px] overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_dfb155a108_809b29bbe54b9fd3.png" alt="sun-drenched wellness sanctuary interior with lush greenery, white sheer curtains billowing softly, " />
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-forest/35 via-forest/15 to-cream/85"></div>
+
+        <!-- Centered Hero Content -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <div class="inline-flex items-center gap-2.5 bg-cream/80 backdrop-blur-sm rounded-full px-5 py-2 mb-8 border border-taupe/60 shadow-sm">
+                <i class="fa-solid fa-certificate text-sage text-xs"></i>
+                <span class="text-xs text-forest uppercase tracking-widest font-sans font-medium">Registered Nurse · Nutritional Therapist · Yoga Teacher</span>
+            </div>
+
+            <h1 class="font-serif text-forest text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[1.08] tracking-tight mb-7 max-w-5xl drop-shadow-sm">
+                Whole-Body Wellness<br /><em class="italic font-light text-forest/85">Rooted in Nature &amp;<br />Clinical Excellence.</em>
+            </h1>
+
+            <p class="text-forest/75 text-base md:text-lg leading-relaxed mb-10 max-w-lg font-sans font-light">
+                Functional nutrition, integrative nursing, and mindful movement — woven into a deeply personal path toward lasting vitality, guided by Vera Duse.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+                <button class="btn-sage px-9 py-4 rounded-full text-sm font-semibold tracking-wide flex items-center gap-2.5 shadow-lg">
+                    <i class="fa-solid fa-seedling text-xs"></i>
+                    Begin Your Journey
+                </button>
+                <button class="btn-outline-taupe px-9 py-4 rounded-full text-sm font-semibold tracking-wide flex items-center gap-2.5 bg-cream/75 backdrop-blur-sm">
+                    Explore Services
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="w-full bg-forest">
+        <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 divide-x divide-cream/20">
+            <div class="flex flex-col items-center text-center px-4 py-2">
+                <div class="font-serif text-4xl text-cream font-light">12+</div>
+                <div class="text-xs text-sage-light uppercase tracking-widest mt-1.5 font-sans">Years Clinical Experience</div>
+            </div>
+            <div class="flex flex-col items-center text-center px-4 py-2">
+                <div class="font-serif text-4xl text-cream font-light">600+</div>
+                <div class="text-xs text-sage-light uppercase tracking-widest mt-1.5 font-sans">Clients Supported</div>
+            </div>
+            <div class="flex flex-col items-center text-center px-4 py-2">
+                <div class="font-serif text-4xl text-cream font-light">5</div>
+                <div class="text-xs text-sage-light uppercase tracking-widest mt-1.5 font-sans">Core Wellness Programs</div>
+            </div>
+            <div class="flex flex-col items-center text-center px-4 py-2">
+                <div class="font-serif text-4xl text-cream font-light">98%</div>
+                <div class="text-xs text-sage-light uppercase tracking-widest mt-1.5 font-sans">Client Satisfaction Rate</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section id="services" class="w-full py-28 bg-cream">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 mb-4">
+                    <div class="w-8 h-px bg-sage"></div>
+                    <span class="text-xs text-sage uppercase tracking-widest font-sans font-semibold">How I Can Help</span>
+                </div>
+                <h2 class="font-serif text-5xl text-forest leading-tight">Clinical Services<br /><em class="italic font-light text-sage-dark">&amp; Wellness Programs</em></h2>
+            </div>
+            <p class="text-sm text-forest/55 max-w-sm leading-relaxed font-sans md:text-right">Each program is built around measurable outcomes and delivered with genuine clinical care, rooted in functional medicine principles.</p>
+        </div>
+
+        <!-- 3-Column Service Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+            <!-- Card 1 -->
+            <div id="service-card-1" class="bg-white rounded-3xl overflow-hidden card-hover border border-taupe/25 polaroid-card flex flex-col">
+                <div class="relative w-full h-56 overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_25ab95d2e4_321f955c52b64252.png" alt="wellness clinic consultation with herbal supplements and lab reports on wooden table, warm natural m" />
+                    <div class="absolute inset-0 service-img-overlay"></div>
+                    <div class="absolute bottom-4 left-5">
+                        <span class="text-xs text-cream/80 font-sans uppercase tracking-widest bg-forest/40 backdrop-blur-sm rounded-full px-3 py-1">Core Program</span>
+                    </div>
+                </div>
+                <div class="p-8 bg-cream/50 flex flex-col flex-1">
+                    <div class="w-11 h-11 bg-forest rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-heart-pulse text-cream text-base"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-forest mb-3">Functional Health Assessment</h3>
+                    <p class="text-sm text-forest/60 leading-relaxed mb-6 font-sans flex-1">A comprehensive 90-minute intake covering labs, lifestyle, history, and goals. The essential foundation for your personalized wellness plan.</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-forest transition-colors group mt-auto">
+                        Learn More <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div id="service-card-2" class="bg-white rounded-3xl overflow-hidden card-hover border border-taupe/25 polaroid-card flex flex-col">
+                <div class="relative w-full h-56 overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="vibrant healthy food preparation with colorful vegetables herbs and whole grains on rustic wooden ta" />
+                    <div class="absolute inset-0 service-img-overlay"></div>
+                    <div class="absolute bottom-4 left-5">
+                        <span class="text-xs text-cream/80 font-sans uppercase tracking-widest bg-forest/40 backdrop-blur-sm rounded-full px-3 py-1">Ongoing Support</span>
+                    </div>
+                </div>
+                <div class="p-8 bg-cream/50 flex flex-col flex-1">
+                    <div class="w-11 h-11 bg-forest rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-seedling text-cream text-base"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-forest mb-3">Nutrition &amp; Lifestyle Coaching</h3>
+                    <p class="text-sm text-forest/60 leading-relaxed mb-6 font-sans flex-1">Evidence-based dietary protocols paired with sustainable behavioral shifts. Monthly check-ins and real-time messaging support included.</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-forest transition-colors group mt-auto">
+                        Learn More <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div id="service-card-3" class="bg-white rounded-3xl overflow-hidden card-hover border border-taupe/25 polaroid-card flex flex-col">
+                <div class="relative w-full h-56 overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="serene yoga and meditation space with candles botanical plants and woven mats, soft warm diffused li" />
+                    <div class="absolute inset-0 service-img-overlay"></div>
+                    <div class="absolute bottom-4 left-5">
+                        <span class="text-xs text-cream/80 font-sans uppercase tracking-widest bg-forest/40 backdrop-blur-sm rounded-full px-3 py-1">Specialty Program</span>
+                    </div>
+                </div>
+                <div class="p-8 bg-cream/50 flex flex-col flex-1">
+                    <div class="w-11 h-11 bg-forest rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-brain text-cream text-base"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-forest mb-3">Stress &amp; Nervous System Reset</h3>
+                    <p class="text-sm text-forest/60 leading-relaxed mb-6 font-sans flex-1">A structured 8-week program targeting HPA axis dysregulation, sleep quality, and cortisol balance through clinical and somatic methods.</p>
+                    <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-sage hover:text-forest transition-colors group mt-auto">
+                        Learn More <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- View All Services -->
+        <div class="flex justify-center mt-12">
+            <a href="#" class="btn-outline-taupe px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide flex items-center gap-2.5">
+                View All Services
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ABOUT / MEET VERA DUSE ==================== -->
+<section id="about" class="w-full py-28 bg-cream-dark">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col lg:flex-row gap-12 xl:gap-20 items-center">
+
+            <!-- Left: Portrait Column -->
+            <div class="w-full lg:w-2/5 flex-shrink-0 relative">
+                <!-- Decorative bg blob -->
+                <div class="absolute -top-8 -left-8 w-72 h-72 bg-sage/10 rounded-full blur-3xl -z-0"></div>
+                <div class="relative rounded-3xl overflow-hidden about-portrait-shadow z-10">
+                    <div class="h-[580px] overflow-hidden">
+                        <img class="w-full h-full object-cover object-top" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="professional warm portrait of an elegant female wellness nurse practitioner and yoga teacher named V" />
+                    </div>
+                    <!-- Bottom overlay gradient -->
+                    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-forest/30 to-transparent"></div>
+                </div>
+
+                <!-- Credentials Badge -->
+                <div class="absolute -bottom-6 -right-4 lg:right-0 xl:-right-6 bg-cream rounded-2xl p-5 flex items-center gap-4 border border-taupe/50 credential-pill z-20" style="box-shadow:0 8px 32px 0 rgba(92,115,95,0.14);">
+                    <div class="w-12 h-12 bg-forest rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-shield-halved text-cream text-base"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-forest font-sans font-bold uppercase tracking-wider">RN · IFMCP · NT</div>
+                        <div class="text-xs text-forest/50 font-sans mt-0.5">Institute for Functional Medicine</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Bio Column -->
+            <div class="w-full lg:w-3/5 mt-8 lg:mt-0">
+                <div class="inline-flex items-center gap-2 mb-5">
+                    <div class="w-8 h-px bg-sage"></div>
+                    <span class="text-xs text-sage uppercase tracking-widest font-sans font-semibold">About Your Practitioner</span>
+                </div>
+
+                <h2 class="font-serif text-5xl xl:text-6xl text-forest leading-tight mb-6">
+                    Meet <span class="text-sage-dark">Vera Duse,</span><br /><em class="italic font-light">RN · NT · IFMCP</em>
+                </h2>
+
+                <p class="text-sm text-forest/70 leading-relaxed mb-4 font-sans">
+                    With over 12 years of clinical nursing experience spanning ICU, primary care, and integrative health settings, Vera Duse brings a rare combination of rigorous medical training and holistic perspective to every client she supports.
+                </p>
+                <p class="text-sm text-forest/70 leading-relaxed mb-8 font-sans">
+                    After witnessing the limits of symptom-only medicine, she pursued advanced training in functional nutrition, yoga therapy, and integrative medicine — determined to offer a more complete model of care that addresses root cause, not just surface presentation.
+                </p>
+
+                <!-- Credentials Bar -->
+                <div class="bg-cream rounded-2xl p-6 mb-8 border border-taupe/40">
+                    <div class="text-xs text-sage uppercase tracking-widest mb-5 font-sans font-semibold">Qualifications &amp; Training</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+                        <div class="flex flex-col items-center text-center bg-cream-dark rounded-xl p-4 border border-taupe/30">
+                            <div class="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center mb-3">
+                                <i class="fa-solid fa-user-nurse text-forest text-base"></i>
+                            </div>
+                            <div class="text-sm font-sans font-semibold text-forest mb-1">Registered Nurse</div>
+                            <div class="text-xs text-forest/45 font-sans">RN · MSN — UCSF<br />Licensed CA & NY</div>
+                        </div>
+
+                        <div class="flex flex-col items-center text-center bg-cream-dark rounded-xl p-4 border border-taupe/30">
+                            <div class="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center mb-3">
+                                <i class="fa-solid fa-leaf text-forest text-base"></i>
+                            </div>
+                            <div class="text-sm font-sans font-semibold text-forest mb-1">Nutritional Therapist</div>
+                            <div class="text-xs text-forest/45 font-sans">IFMCP Certified<br />Functional Nutrition</div>
+                        </div>
+
+                        <div class="flex flex-col items-center text-center bg-cream-dark rounded-xl p-4 border border-taupe/30">
+                            <div class="w-10 h-10 bg-forest/10 rounded-full flex items-center justify-center mb-3">
+                                <i class="fa-solid fa-spa text-forest text-base"></i>
+                            </div>
+                            <div class="text-sm font-sans font-semibold text-forest mb-1">Yoga Teacher</div>
+                            <div class="text-xs text-forest/45 font-sans">RYT-500 · Somatic<br />Mind-Body Medicine</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Additional credentials list -->
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-sage/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fa-solid fa-check text-sage text-xs"></i>
+                        </div>
+                        <span class="text-sm text-forest/75 font-sans">Certified Integrative Nutrition Health Coach (CINHC)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-sage/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fa-solid fa-check text-sage text-xs"></i>
+                        </div>
+                        <span class="text-sm text-forest/75 font-sans">Advanced Training in Somatic &amp; Mind-Body Medicine</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-sage/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fa-solid fa-check text-sage text-xs"></i>
+                        </div>
+                        <span class="text-sm text-forest/75 font-sans">12+ Years ICU &amp; Primary Care Clinical Nursing Experience</span>
+                    </li>
+                </ul>
+
+                <button class="btn-sage px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide flex items-center gap-2 w-fit">
+                    Read Vera's Full Story <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section id="testimonials" class="w-full py-28 bg-cream">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-14 gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 mb-4">
+                    <div class="w-8 h-px bg-sage"></div>
+                    <span class="text-xs text-sage uppercase tracking-widest font-sans font-semibold">Client Stories</span>
+                </div>
+                <h2 class="font-serif text-5xl text-forest leading-tight">What Clients<br /><em class="italic font-light">Are Saying</em></h2>
+            </div>
+            <div class="flex items-center gap-2.5">
+                <button id="prev-btn" class="w-10 h-10 rounded-full border border-taupe flex items-center justify-center text-forest hover:bg-sage hover:text-cream hover:border-sage transition-all">
+                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                </button>
+                <button id="next-btn" class="w-10 h-10 rounded-full border border-taupe flex items-center justify-center text-forest hover:bg-sage hover:text-cream hover:border-sage transition-all">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+            <!-- Testimonial 1 -->
+            <div id="testimonial-1" class="bg-white rounded-3xl p-8 testimonial-shadow border border-taupe/20 card-hover flex flex-col">
+                <div class="text-5xl text-taupe font-serif leading-none mb-4">"</div>
+                <p class="text-sm text-forest/70 leading-relaxed mb-6 font-sans italic flex-1">Working with Vera completely transformed how I understand my body. After years of being told my labs were "normal," she identified root causes no one else had explored. I feel genuinely well for the first time in a decade.</p>
+                <div class="flex items-center gap-1 mb-5">
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                </div>
+                <div class="flex items-center gap-3 pt-4 border-t border-taupe/30 mt-auto">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Sarah M." class="w-10 h-10 rounded-full object-cover" />
+                    <div>
+                        <div class="text-sm text-forest font-sans font-semibold">Sarah M.</div>
+                        <div class="text-xs text-forest/40 font-sans">Functional Health Program</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div id="testimonial-2" class="bg-white rounded-3xl p-8 testimonial-shadow border border-taupe/20 card-hover flex flex-col">
+                <div class="text-5xl text-taupe font-serif leading-none mb-4">"</div>
+                <p class="text-sm text-forest/70 leading-relaxed mb-6 font-sans italic flex-1">Vera's approach is unlike any practitioner I've ever worked with — simultaneously the most scientifically rigorous and the most genuinely caring clinician. The 8-week stress reset program was life-changing for my cortisol and sleep issues.</p>
+                <div class="flex items-center gap-1 mb-5">
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                </div>
+                <div class="flex items-center gap-3 pt-4 border-t border-taupe/30 mt-auto">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Priya K." class="w-10 h-10 rounded-full object-cover" />
+                    <div>
+                        <div class="text-sm text-forest font-sans font-semibold">Priya K.</div>
+                        <div class="text-xs text-forest/40 font-sans">Stress &amp; Nervous System Reset</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div id="testimonial-3" class="bg-white rounded-3xl p-8 testimonial-shadow border border-taupe/20 card-hover flex flex-col">
+                <div class="text-5xl text-taupe font-serif leading-none mb-4">"</div>
+                <p class="text-sm text-forest/70 leading-relaxed mb-6 font-sans italic flex-1">I came to Vera exhausted and foggy. Three months into her nutrition protocol I have more energy than I've had in years. Her evidence-based approach — combined with genuine warmth — gave me the confidence to make real and lasting changes.</p>
+                <div class="flex items-center gap-1 mb-5">
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                    <i class="fa-solid fa-star text-taupe-dark text-xs"></i>
+                </div>
+                <div class="flex items-center gap-3 pt-4 border-t border-taupe/30 mt-auto">
+                    <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg" alt="Rachel T." class="w-10 h-10 rounded-full object-cover" />
+                    <div>
+                        <div class="text-sm text-forest font-sans font-semibold">Rachel T.</div>
+                        <div class="text-xs text-forest/40 font-sans">Nutrition &amp; Lifestyle Coaching</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PROCESS ==================== -->
+<section id="process" class="w-full py-28 bg-forest">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 mb-4">
+                    <div class="w-8 h-px bg-sage-light"></div>
+                    <span class="text-xs text-sage-light uppercase tracking-widest font-sans font-semibold">Your Journey</span>
+                </div>
+                <h2 class="font-serif text-5xl text-cream leading-tight">The Vera Wellness<br /><em class="italic font-light text-sage-light">4-Phase Process</em></h2>
+            </div>
+            <p class="text-sm text-cream/45 max-w-xs leading-relaxed font-sans md:text-right">A structured protocol designed to produce measurable and lasting results for every individual client.</p>
+        </div>
+
+        <!-- Steps Rail -->
+        <div class="flex flex-col md:flex-row items-start gap-0">
+
+            <!-- Step 1 -->
+            <div class="flex-1 flex flex-col items-center text-center px-3 lg:px-5 relative py-6 md:py-0">
+                <div class="w-16 h-16 rounded-full bg-sage flex items-center justify-center mb-5 border-4 border-sage/30 flex-shrink-0" style="box-shadow: 0 0 0 8px rgba(143,165,139,0.15);">
+                    <span class="font-serif text-2xl text-cream font-light">01</span>
+                </div>
+                <div class="w-11 h-11 bg-cream/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-phone text-sage text-sm"></i>
+                </div>
+                <h4 class="font-serif text-xl text-cream mb-2.5">Book a Call</h4>
+                <p class="text-xs text-cream/45 leading-relaxed font-sans">Free 20-min intro to assess alignment and answer your initial questions without obligation.</p>
+            </div>
+
+            <div class="step-connector hidden md:block"></div>
+
+            <!-- Step 2 -->
+            <div class="flex-1 flex flex-col items-center text-center px-3 lg:px-5 relative py-6 md:py-0">
+                <div class="w-16 h-16 rounded-full bg-cream/10 border-2 border-sage flex items-center justify-center mb-5 flex-shrink-0">
+                    <span class="font-serif text-2xl text-cream font-light">02</span>
+                </div>
+                <div class="w-11 h-11 bg-cream/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-clipboard-list text-sage text-sm"></i>
+                </div>
+                <h4 class="font-serif text-xl text-cream mb-2.5">Deep Consultation</h4>
+                <p class="text-xs text-cream/45 leading-relaxed font-sans">Comprehensive health history, lab review, and root-cause mapping — the full clinical picture.</p>
+            </div>
+
+            <div class="step-connector hidden md:block"></div>
+
+            <!-- Step 3 -->
+            <div class="flex-1 flex flex-col items-center text-center px-3 lg:px-5 relative py-6 md:py-0">
+                <div class="w-16 h-16 rounded-full bg-cream/10 border-2 border-sage flex items-center justify-center mb-5 flex-shrink-0">
+                    <span class="font-serif text-2xl text-cream font-light">03</span>
+                </div>
+                <div class="w-11 h-11 bg-cream/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-map text-sage text-sm"></i>
+                </div>
+                <h4 class="font-serif text-xl text-cream mb-2.5">Personalised Plan</h4>
+                <p class="text-xs text-cream/45 leading-relaxed font-sans">A custom protocol with clear action steps across nutrition, movement, sleep, and stress management.</p>
+            </div>
+
+            <div class="step-connector hidden md:block"></div>
+
+            <!-- Step 4 -->
+            <div class="flex-1 flex flex-col items-center text-center px-3 lg:px-5 relative py-6 md:py-0">
+                <div class="w-16 h-16 rounded-full bg-cream/10 border-2 border-sage flex items-center justify-center mb-5 flex-shrink-0">
+                    <span class="font-serif text-2xl text-cream font-light">04</span>
+                </div>
+                <div class="w-11 h-11 bg-cream/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-chart-line text-sage text-sm"></i>
+                </div>
+                <h4 class="font-serif text-xl text-cream mb-2.5">Ongoing Support</h4>
+                <p class="text-xs text-cream/45 leading-relaxed font-sans">Regular check-ins, lab retesting, and protocol refinements as your body responds and evolves.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==================== RESOURCES / BLOG ==================== -->
+<section id="resources" class="w-full py-28 bg-cream">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-14 gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 mb-4">
+                    <div class="w-8 h-px bg-sage"></div>
+                    <span class="text-xs text-sage uppercase tracking-widest font-sans font-semibold">Clinical Insights</span>
+                </div>
+                <h2 class="font-serif text-5xl text-forest leading-tight">Articles &amp;<br /><em class="italic font-light">Resources</em></h2>
+            </div>
+            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-forest border-b border-sage pb-0.5 hover:text-sage transition-colors">
+                View All Articles <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+
+        <!-- 4-Column Compact Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Resource Card 1 -->
+            <div id="resource-card-1" class="bg-white border border-taupe/30 rounded-2xl overflow-hidden polaroid-card card-hover flex flex-col">
+                <div class="w-full h-44 overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="close-up of vibrant green herbs and natural supplements arranged artfully on white background, high " />
+                </div>
+                <div class="p-5 pb-6 flex flex-col flex-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="resource-tag text-xs font-sans font-semibold uppercase tracking-wider rounded-full px-2.5 py-1">Stress</span>
+                        <span class="text-xs text-taupe-dark font-sans flex items-center gap-1">
+                            <i class="fa-regular fa-calendar text-xs"></i> Mar 14, 2026
+                        </span>
+                    </div>
+                    <h4 class="font-serif text-base text-forest leading-snug mb-2.5 flex-1">The Cortisol–Sleep Loop: Why You Can't Out-Supplement Stress</h4>
+                    <p class="text-xs text-forest/50 leading-relaxed mb-4 font-sans">The bidirectional relationship between HPA axis dysfunction and disrupted sleep architecture.</p>
+                    <a href="#" class="text-xs font-semibold text-sage flex items-center gap-1 hover:text-forest transition-colors group mt-auto">
+                        Read Article <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Resource Card 2 -->
+            <div id="resource-card-2" class="bg-white border border-taupe/30 rounded-2xl overflow-hidden polaroid-card card-hover flex flex-col">
+                <div class="w-full h-44 overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/default-placeholder.png" alt="colorful laboratory test tubes and scientific equipment in soft focus, health and clinical science e" />
+                </div>
+                <div class="p-5 pb-6 flex flex-col flex-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="resource-tag text-xs font-sans font-semibold uppercase tracking-wider rounded-full px-2.5 py-1">Labs</span>
+                        <span class="text-xs text-taupe-dark font-sans flex items-center gap-1">
+                            <i class="fa-regular fa-calendar text-xs"></i> Feb 28, 2026
+                        </span>
+                    </div>
+                    <h4 class="font-serif text-base text-forest leading-snug mb-2.5 flex-1">Interpreting Your Labs: What "Normal" Ranges Don't Tell You</h4>
+                    <p class="text-xs text-forest/50 leading-relaxed mb-4 font-sans">Functional reference ranges offer an earlier window into metabolic dysfunction.</p>
+                    <a href="#" class="text-xs font-semibold text-sage flex items-center gap-1 hover:text-forest transition-colors group mt-auto">
+                        Read Article <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Resource Card 3 -->
+            <div id="resource-card-3" class="bg-white border border-taupe/30 rounded-2xl overflow-hidden polaroid-card card-hover flex flex-col">
+                <div class="w-full h-44 overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_9865c81359_38c5e2fb6b6f17ce.png" alt="beautiful gut health and probiotic foods display with colorful fermented foods kimchi yogurt and pre" />
+                </div>
+                <div class="p-5 pb-6 flex flex-col flex-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="resource-tag text-xs font-sans font-semibold uppercase tracking-wider rounded-full px-2.5 py-1">Gut Health</span>
+                        <span class="text-xs text-taupe-dark font-sans flex items-center gap-1">
+                            <i class="fa-regular fa-calendar text-xs"></i> Feb 10, 2026
+                        </span>
+                    </div>
+                    <h4 class="font-serif text-base text-forest leading-snug mb-2.5 flex-1">Gut Health Is Mental Health: The Microbiome–Mood Axis</h4>
+                    <p class="text-xs text-forest/50 leading-relaxed mb-4 font-sans">New research validates the enteric nervous system as a second brain and clinical target.</p>
+                    <a href="#" class="text-xs font-semibold text-sage flex items-center gap-1 hover:text-forest transition-colors group mt-auto">
+                        Read Article <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Resource Card 4 -->
+            <div id="resource-card-4" class="bg-white border border-taupe/30 rounded-2xl overflow-hidden polaroid-card card-hover flex flex-col">
+                <div class="w-full h-44 overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_d7ccd814d3_9fa7957a7324a226.png" alt="empowered woman in soft nature setting golden hour portrait, healthy glowing skin, botanical backgro" />
+                </div>
+                <div class="p-5 pb-6 flex flex-col flex-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="resource-tag text-xs font-sans font-semibold uppercase tracking-wider rounded-full px-2.5 py-1">Hormones</span>
+                        <span class="text-xs text-taupe-dark font-sans flex items-center gap-1">
+                            <i class="fa-regular fa-calendar text-xs"></i> Jan 22, 2026
+                        </span>
+                    </div>
+                    <h4 class="font-serif text-base text-forest leading-snug mb-2.5 flex-1">5 Functional Labs Every Woman Over 35 Should Request</h4>
+                    <p class="text-xs text-forest/50 leading-relaxed mb-4 font-sans">Tests that reveal hormonal patterns years before symptoms appear — a clinical breakdown.</p>
+                    <a href="#" class="text-xs font-semibold text-sage flex items-center gap-1 hover:text-forest transition-colors group mt-auto">
+                        Read Article <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FINAL CTA ==================== -->
+<section id="cta-block" class="w-full relative overflow-hidden">
+    <div class="relative h-[600px] overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_1a4a9ac5c1_fa37855c9a004dbc.png" alt="serene forest wellness retreat landscape, ancient trees with soft morning mist, sunlight rays throug" />
+        <div class="absolute inset-0 cta-overlay"></div>
+
+        <!-- Content -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <div class="w-16 h-16 bg-cream/15 rounded-full flex items-center justify-center mb-6 border border-cream/25" style="box-shadow: 0 0 0 14px rgba(248,246,241,0.07);">
+                <i class="fa-solid fa-leaf text-cream text-xl"></i>
+            </div>
+            <div class="inline-flex items-center gap-3 mb-6">
+                <div class="w-10 h-px bg-sage-light/70"></div>
+                <span class="text-xs text-sage-light uppercase tracking-widest font-sans font-semibold">Take the First Step</span>
+                <div class="w-10 h-px bg-sage-light/70"></div>
+            </div>
+            <h2 class="font-serif text-5xl md:text-6xl text-cream leading-tight mb-6 max-w-3xl drop-shadow-sm">
+                Ready to Work With<br /><em class="italic font-light text-sage-light">a Clinician Who Truly Listens?</em>
+            </h2>
+            <p class="text-cream/65 text-base leading-relaxed max-w-lg mb-10 font-sans">
+                Book your free 20-minute discovery call with Vera Duse and find out if Vera Wellness is the right fit for your health goals. No obligation. No upsell. Just clarity.
+            </p>
+            <button class="btn-sage px-12 py-5 rounded-full text-base font-semibold tracking-wide flex items-center gap-3 shadow-2xl mx-auto">
+                <i class="fa-solid fa-calendar-check"></i>
+                Book Your Free Discovery Call
+            </button>
+            <p class="text-cream/35 text-xs mt-5 font-sans">Limited availability — typically booked 2–3 weeks out.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer id="footer" class="w-full bg-forest-dark pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+            <!-- Brand -->
+            <div>
+                <div class="flex items-center gap-2.5 mb-4">
+                    <div class="w-8 h-8 bg-sage rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-leaf text-cream text-xs"></i>
+                    </div>
+                    <span class="font-serif text-cream text-xl tracking-wide">Vera Wellness</span>
+                </div>
+                <p class="text-cream/40 text-xs leading-relaxed mb-2 font-sans">Evidence-based integrative health care from a Registered Nurse, Nutritional Therapist &amp; Yoga Teacher.</p>
+                <p class="text-sage-light/60 text-xs font-sans italic mb-5">Led by Vera Duse, RN · NT · IFMCP</p>
+                <div class="flex items-center gap-3">
+                    <a href="#" class="w-8 h-8 bg-cream/10 rounded-full flex items-center justify-center text-cream/50 hover:bg-sage hover:text-cream transition-all">
+                        <i class="fa-brands fa-instagram text-xs"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 bg-cream/10 rounded-full flex items-center justify-center text-cream/50 hover:bg-sage hover:text-cream transition-all">
+                        <i class="fa-brands fa-linkedin text-xs"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 bg-cream/10 rounded-full flex items-center justify-center text-cream/50 hover:bg-sage hover:text-cream transition-all">
+                        <i class="fa-brands fa-youtube text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <div class="text-xs text-sage-light uppercase tracking-widest mb-4 font-sans font-semibold">Services</div>
+                <ul class="space-y-2.5">
+                    <li><a href="#" class="text-cream/40 hover:text-cream text-xs font-sans transition-colors">Functional Health Assessment</a></li>
+                    <li><a href="#" class="text-cream/40 hover:text-cream text-xs font-sans transition-colors">Nutrition &amp; Lifestyle Coaching</a></li>
+                    <li><a href="#" class="text-cream/40 hover:text-cream text-xs font-sans transition-colors">Stress &amp; Nervous System Reset</a></li>
+                    <li><a href="#" class="text-cream/40 hover:text-cream text-xs font-sans transition-colors">Lab Interpretation Sessions</a></li>
+                    <li><a href="#" class="text-cream/40 hover:text-cream text-xs font-sans transition-colors">Wellness Retreats</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div>
+                <div class="text-xs text-sage-light uppercase tracking-widest mb-4 font-sans font-semibold">Resources</div>
+                <ul class="space-y-2.5">
+                    <li><a href="#" class="text-cream/40 hover:text-cream text-xs font-sans transition-colors">Articles &amp; Blog</a></li>
+                    <li><a href="#" class="text-cream/40 hover:text-cream text-xs font-sans transition-colors">Free Health Audit Guide</a></li>
+                    <li><a href="#" class="text-cream/40 hover:text-cream text-xs font-sans transition-colors">Podcast</a></li>
+                    <li><a href="#" class="text-cream/40 hover:text-cream text-xs font-sans transition-colors">FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div id="contact">
+                <div class="text-xs text-sage-light uppercase tracking-widest mb-4 font-sans font-semibold">Contact</div>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-2.5">
+                        <i class="fa-regular fa-envelope text-sage text-xs mt-0.5"></i>
+                        <span class="text-cream/40 text-xs font-sans">vera@verawellness.com</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-location-dot text-sage text-xs mt-0.5"></i>
+                        <span class="text-cream/40 text-xs font-sans">San Francisco, CA<br />Telehealth Available Nationwide</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <i class="fa-regular fa-clock text-sage text-xs mt-0.5"></i>
+                        <span class="text-cream/40 text-xs font-sans">Mon–Thu, 9am–5pm PT</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-cream/25 text-xs font-sans">© 2026 Vera Wellness. Vera Duse RN NT IFMCP. Not a substitute for medical advice.</p>
+            <div class="flex items-center gap-6">
+                <a href="#" class="text-cream/25 hover:text-cream/60 text-xs font-sans transition-colors">Privacy Policy</a>
+                <a href="#" class="text-cream/25 hover:text-cream/60 text-xs font-sans transition-colors">Terms of Use</a>
+                <a href="#" class="text-cream/25 hover:text-cream/60 text-xs font-sans transition-colors">Disclaimer</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    window.addEventListener('load', function() {
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Testimonial nav (visual feedback)
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', function() {
+                prevBtn.classList.add('bg-sage', 'text-cream', 'border-sage');
+                setTimeout(() => prevBtn.classList.remove('bg-sage', 'text-cream', 'border-sage'), 220);
+            });
+            nextBtn.addEventListener('click', function() {
+                nextBtn.classList.add('bg-sage', 'text-cream', 'border-sage');
+                setTimeout(() => nextBtn.classList.remove('bg-sage', 'text-cream', 'border-sage'), 220);
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
