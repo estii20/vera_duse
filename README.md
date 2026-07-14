@@ -1,3 +1,3 @@
-Website Strategy Concept
+Homepage Concept
 
-Created following our consultation to demonstrate the proposed user journey and homepage structure.
+This concept focuses on layout, user journey and page structure. Final imagery, copy and branding will be refined during the design phase.
