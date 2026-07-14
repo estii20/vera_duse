@@ -1,5 +1,3 @@
-Homepage Concept
+Website Strategy Concept
 
-Prepared for Vera Duse Yoga & Nutrition
-
-This concept illustrates the proposed homepage structure and user journey following our consultation.
+Created following our consultation to demonstrate the proposed user journey and homepage structure.
