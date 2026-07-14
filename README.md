@@ -1,3 +1,13 @@
-Homepage Concept
+# Vera Duse Homepage Concept
 
-This concept focuses on layout, user journey and page structure. Final imagery, copy and branding will be refined during the design phase.
+A homepage concept created as part of a UX/UI proposal for a wellness business.
+
+## Built with
+
+- HTML
+- Tailwind CSS
+- Font Awesome
+
+## Purpose
+
+This repository contains a concept demonstrating improved information architecture, user journey and responsive design for a nutrition, yoga and retreat website.
